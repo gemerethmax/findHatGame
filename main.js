@@ -13,6 +13,30 @@ class Field {
         this.field[0][0] = pathCharacter;
     }
 
+    runGame() {
+        let playing = true;
+        while (playing) {
+            this.print();
+            this.askQuestion();
+            if (!this.isInBounds()) {
+                console.log("Out of bounds! Game over.");
+                playing = false;
+                break;
+            } else if (this.isHat()) {
+                console.log("Congratulations! You found your hat!");
+                playing = false;
+                break;
+            } else if (this.isHole()) {
+                console.log("You fell into a hole! Game over.");
+                playing = false;
+                break;
+            } 
+        
+            this.field[this.locationY][this.locationX] = pathCharacter;
+            
+        }
+    }
+
     askQuestion() {
         const answer = prompt("Which way? (u, d, l, r): ").toLowerCase();
         switch (answer) {
