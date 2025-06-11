@@ -34,7 +34,13 @@ class Field {
                 break;
         }
     }       
+    // isInBounds is just returning a Boolean value indicating if the current location is within the bounds of the field
+    isInBounds() {
+        return (
+            this.locationY >= 0 && this.locationX >=0 && this.locationY < this.field.length && this.locationX < this.field[0].length
+        )
 
+    }
     print() {
         const displayString = this.field.map(row =>{
              return row.join('')
