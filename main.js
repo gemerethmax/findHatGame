@@ -33,7 +33,8 @@ class Field {
                 this.askQuestion();
                 break;
         }
-    }       
+    }     
+
     // isInBounds is just returning a Boolean value indicating if the current location is within the bounds of the field
     isInBounds() {
         return (
@@ -41,6 +42,17 @@ class Field {
         )
 
     }
+
+    // isHat checks if the current location contains a hat
+    isHat() {
+        return this.field[this.locationY][this.locationX] === hat;  
+    }
+
+    // isHole checks if the current location contains a hole
+    isHole() {
+        return this.field[this.locationY][this.locationX] === hole;
+    }
+
     print() {
         const displayString = this.field.map(row =>{
              return row.join('')
